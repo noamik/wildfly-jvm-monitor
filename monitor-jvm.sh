@@ -15,6 +15,11 @@ function getPids {
   JSPID2=$(<$FPID/slave-200.pid)
 }
 
+function sendStats {
+  # zabbix_sender $ZS_PARAM -z service.theluckycatcasino.com -s "$(hostname)" -k "cluster.status" -o "$CLUSTER_STATUS" >> $TEMP_LOG_FILE
+  echo "Test"
+}
+
 function getStats {
   #sudo -H -u wildfly bash -c '/usr/local/bin/jstat -gc -t 20674' && sudo -H -u wildfly bash -c '/usr/local/bin/jstat -gcutil -t 20674' && sudo -H -u wildfly bash -c "/usr/local/bin/jmap -heap 20674"
   echo "Cool"
@@ -38,6 +43,7 @@ if [[ -n "$JHPID" ]] ; then
   fi
 fi
 }
-
+. ./get-platform.sh
+echo $platform
 getPids
 checkRunning

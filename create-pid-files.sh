@@ -8,15 +8,7 @@ PIDF="pids"
 TEMP_OUT=$TMP/test-jps-output.txt
 
 # Querying plattform
-platform='unknown'
-unamestr=$(uname)
-if [[ "$unamestr" == 'Linux' ]]; then
-   platform='linux'
-elif [[ "$unamestr" == 'FreeBSD' ]]; then
-   platform='freebsd'
-elif [[ "$unamestr" == 'SunOS' ]]; then
-   platform='sunos'
-fi
+. ./get-platform.sh
 
 # Getting running jvms
 if [[ $platform == 'sunos' ]]; then
