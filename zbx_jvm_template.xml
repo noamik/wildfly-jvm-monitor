@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-07-01T14:33:12Z</date>
+    <date>2015-07-01T16:04:15Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -312,6 +312,52 @@
                     <logtimefmt/>
                 </item>
                 <item>
+                    <name>Host Controller NGCMX</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <multiplier>1</multiplier>
+                    <snmp_oid/>
+                    <key>jvm.hostcontroller.NGCMX</key>
+                    <delay>0</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Maximum new generation capacity (KB).</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>JVM</name>
+                        </application>
+                        <application>
+                            <name>Wildfly Host Controller</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
                     <name>Host Controller OC</name>
                     <type>2</type>
                     <snmp_community/>
@@ -345,6 +391,52 @@
                     <privatekey/>
                     <port/>
                     <description>Current old space capacity (KB).</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>JVM</name>
+                        </application>
+                        <application>
+                            <name>Wildfly Host Controller</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Host Controller OGCMX</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <multiplier>1</multiplier>
+                    <snmp_oid/>
+                    <key>jvm.hostcontroller.OGCMX</key>
+                    <delay>0</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Maximum old generation capacity (KB).</description>
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
@@ -437,6 +529,52 @@
                     <privatekey/>
                     <port/>
                     <description>Current Permanent space capacity (KB).</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>JVM</name>
+                        </application>
+                        <application>
+                            <name>Wildfly Host Controller</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Host Controller PGCMX</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <multiplier>1</multiplier>
+                    <snmp_oid/>
+                    <key>jvm.hostcontroller.PGCMX</key>
+                    <delay>0</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Maximum Permanent generation capacity (KB).</description>
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
@@ -1048,6 +1186,52 @@
                     <logtimefmt/>
                 </item>
                 <item>
+                    <name>Process Controller NGCMX</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <multiplier>1</multiplier>
+                    <snmp_oid/>
+                    <key>jvm.processcontroller.NGCMX</key>
+                    <delay>0</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Maximum new generation capacity (KB).</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>JVM</name>
+                        </application>
+                        <application>
+                            <name>Wildfly Process Controller</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
                     <name>Process Controller OC</name>
                     <type>2</type>
                     <snmp_community/>
@@ -1081,6 +1265,52 @@
                     <privatekey/>
                     <port/>
                     <description>Current old space capacity (KB).</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>JVM</name>
+                        </application>
+                        <application>
+                            <name>Wildfly Process Controller</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Process Controller OGCMX</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <multiplier>1</multiplier>
+                    <snmp_oid/>
+                    <key>jvm.processcontroller.OGCMX</key>
+                    <delay>0</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Maximum old generation capacity (KB).</description>
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
@@ -1173,6 +1403,52 @@
                     <privatekey/>
                     <port/>
                     <description>Current Permanent space capacity (KB).</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>JVM</name>
+                        </application>
+                        <application>
+                            <name>Wildfly Process Controller</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Process Controller PGCMX</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <multiplier>1</multiplier>
+                    <snmp_oid/>
+                    <key>jvm.processcontroller.PGCMX</key>
+                    <delay>0</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Maximum Permanent generation capacity (KB).</description>
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
@@ -1403,6 +1679,52 @@
                     <privatekey/>
                     <port/>
                     <description>Survivor space 1 utilization (KB).</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>JVM</name>
+                        </application>
+                        <application>
+                            <name>Wildfly Process Controller</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Process Controller trigger limit trap</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>jvm.processcontroller.limittrapstarter[{$ZABBIX_AGENTD_CONF}]</key>
+                    <delay>60</delay>
+                    <history>90</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>3</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
@@ -1784,6 +2106,52 @@
                     <logtimefmt/>
                 </item>
                 <item>
+                    <name>Slave 100 NGCMX</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <multiplier>1</multiplier>
+                    <snmp_oid/>
+                    <key>jvm.slave100.NGCMX</key>
+                    <delay>0</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Maximum new generation capacity (KB).</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>JVM</name>
+                        </application>
+                        <application>
+                            <name>Wildfly Applicationserver 100</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
                     <name>Slave 100 OC</name>
                     <type>2</type>
                     <snmp_community/>
@@ -1817,6 +2185,52 @@
                     <privatekey/>
                     <port/>
                     <description>Current old space capacity (KB).</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>JVM</name>
+                        </application>
+                        <application>
+                            <name>Wildfly Applicationserver 100</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Slave 100 OGCMX</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <multiplier>1</multiplier>
+                    <snmp_oid/>
+                    <key>jvm.slave100.OGCMX</key>
+                    <delay>0</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Maximum old generation capacity (KB).</description>
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
@@ -1909,6 +2323,52 @@
                     <privatekey/>
                     <port/>
                     <description>Current Permanent space capacity (KB).</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>JVM</name>
+                        </application>
+                        <application>
+                            <name>Wildfly Applicationserver 100</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Slave 100 PGCMX</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <multiplier>1</multiplier>
+                    <snmp_oid/>
+                    <key>jvm.slave100.PGCMX</key>
+                    <delay>0</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Maximum Permanent generation capacity (KB).</description>
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
@@ -2520,6 +2980,52 @@
                     <logtimefmt/>
                 </item>
                 <item>
+                    <name>Slave 200 NGCMX</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <multiplier>1</multiplier>
+                    <snmp_oid/>
+                    <key>jvm.slave200.NGCMX</key>
+                    <delay>0</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Maximum new generation capacity (KB).</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>JVM</name>
+                        </application>
+                        <application>
+                            <name>Wildfly Applicationserver 200</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
                     <name>Slave 200 OC</name>
                     <type>2</type>
                     <snmp_community/>
@@ -2553,6 +3059,52 @@
                     <privatekey/>
                     <port/>
                     <description>Current old space capacity (KB).</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>JVM</name>
+                        </application>
+                        <application>
+                            <name>Wildfly Applicationserver 200</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Slave 200 OGCMX</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <multiplier>1</multiplier>
+                    <snmp_oid/>
+                    <key>jvm.slave200.OGCMX</key>
+                    <delay>0</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Maximum old generation capacity (KB).</description>
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
@@ -2645,6 +3197,52 @@
                     <privatekey/>
                     <port/>
                     <description>Current Permanent space capacity (KB).</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>JVM</name>
+                        </application>
+                        <application>
+                            <name>Wildfly Applicationserver 200</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Slave 200 PGCMX</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <multiplier>1</multiplier>
+                    <snmp_oid/>
+                    <key>jvm.slave200.PGCMX</key>
+                    <delay>0</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Maximum Permanent generation capacity (KB).</description>
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
@@ -3832,7 +4430,7 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>1</sortorder>
+                    <sortorder>2</sortorder>
                     <drawtype>1</drawtype>
                     <color>6666FF</color>
                     <yaxisside>0</yaxisside>
@@ -3844,7 +4442,7 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>0</sortorder>
+                    <sortorder>1</sortorder>
                     <drawtype>0</drawtype>
                     <color>DD0000</color>
                     <yaxisside>0</yaxisside>
@@ -3853,6 +4451,18 @@
                     <item>
                         <host>wildfly-JVM-monitor</host>
                         <key>jvm.hostcontroller.EC</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>990000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.hostcontroller.NGCMX</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -3988,7 +4598,7 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>0</sortorder>
+                    <sortorder>1</sortorder>
                     <drawtype>0</drawtype>
                     <color>DD0000</color>
                     <yaxisside>0</yaxisside>
@@ -4000,7 +4610,19 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>1</sortorder>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>770000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.hostcontroller.OGCMX</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
                     <drawtype>1</drawtype>
                     <color>6666FF</color>
                     <yaxisside>0</yaxisside>
@@ -4032,7 +4654,19 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>1</sortorder>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>880000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.hostcontroller.PGCMX</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
                     <drawtype>1</drawtype>
                     <color>6666FF</color>
                     <yaxisside>0</yaxisside>
@@ -4044,7 +4678,7 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>0</sortorder>
+                    <sortorder>1</sortorder>
                     <drawtype>0</drawtype>
                     <color>DD0000</color>
                     <yaxisside>0</yaxisside>
@@ -4140,7 +4774,7 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>0</sortorder>
+                    <sortorder>1</sortorder>
                     <drawtype>0</drawtype>
                     <color>DD0000</color>
                     <yaxisside>0</yaxisside>
@@ -4152,7 +4786,7 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>1</sortorder>
+                    <sortorder>2</sortorder>
                     <drawtype>1</drawtype>
                     <color>6666FF</color>
                     <yaxisside>0</yaxisside>
@@ -4161,6 +4795,18 @@
                     <item>
                         <host>wildfly-JVM-monitor</host>
                         <key>jvm.processcontroller.EU</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>770000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.processcontroller.NGCMX</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4216,18 +4862,6 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>4</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>DD0000</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>wildfly-JVM-monitor</host>
-                        <key>jvm.processcontroller.PU</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>1</sortorder>
                     <drawtype>1</drawtype>
                     <color>00EE00</color>
@@ -4252,6 +4886,18 @@
                     </item>
                 </graph_item>
                 <graph_item>
+                    <sortorder>3</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>FFCCCC</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.processcontroller.OU</key>
+                    </item>
+                </graph_item>
+                <graph_item>
                     <sortorder>0</sortorder>
                     <drawtype>0</drawtype>
                     <color>33FFFF</color>
@@ -4264,15 +4910,15 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>3</sortorder>
+                    <sortorder>4</sortorder>
                     <drawtype>0</drawtype>
-                    <color>FFCCCC</color>
+                    <color>DD0000</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
                         <host>wildfly-JVM-monitor</host>
-                        <key>jvm.processcontroller.OU</key>
+                        <key>jvm.processcontroller.PU</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4298,17 +4944,17 @@
                 <graph_item>
                     <sortorder>0</sortorder>
                     <drawtype>0</drawtype>
-                    <color>DD0000</color>
+                    <color>770000</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
                         <host>wildfly-JVM-monitor</host>
-                        <key>jvm.processcontroller.OC</key>
+                        <key>jvm.processcontroller.OGCMX</key>
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>1</sortorder>
+                    <sortorder>2</sortorder>
                     <drawtype>1</drawtype>
                     <color>6666FF</color>
                     <yaxisside>0</yaxisside>
@@ -4317,6 +4963,18 @@
                     <item>
                         <host>wildfly-JVM-monitor</host>
                         <key>jvm.processcontroller.OU</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>DD0000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.processcontroller.OC</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4340,7 +4998,7 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>1</sortorder>
+                    <sortorder>2</sortorder>
                     <drawtype>1</drawtype>
                     <color>6666FF</color>
                     <yaxisside>0</yaxisside>
@@ -4352,7 +5010,7 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>0</sortorder>
+                    <sortorder>1</sortorder>
                     <drawtype>0</drawtype>
                     <color>DD0000</color>
                     <yaxisside>0</yaxisside>
@@ -4361,6 +5019,18 @@
                     <item>
                         <host>wildfly-JVM-monitor</host>
                         <key>jvm.processcontroller.PC</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>770000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.processcontroller.PGCMX</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4448,7 +5118,7 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>1</sortorder>
+                    <sortorder>2</sortorder>
                     <drawtype>1</drawtype>
                     <color>6666FF</color>
                     <yaxisside>0</yaxisside>
@@ -4460,7 +5130,7 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>0</sortorder>
+                    <sortorder>1</sortorder>
                     <drawtype>0</drawtype>
                     <color>DD0000</color>
                     <yaxisside>0</yaxisside>
@@ -4469,6 +5139,18 @@
                     <item>
                         <host>wildfly-JVM-monitor</host>
                         <key>jvm.slave100.EC</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>770000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.slave100.NGCMX</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4560,18 +5242,6 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>4</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>DD0000</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>wildfly-JVM-monitor</host>
-                        <key>jvm.slave100.PU</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>2</sortorder>
                     <drawtype>0</drawtype>
                     <color>EEEE00</color>
@@ -4581,6 +5251,18 @@
                     <item>
                         <host>wildfly-JVM-monitor</host>
                         <key>jvm.slave100.EU</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>4</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>DD0000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.slave100.PU</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4604,7 +5286,7 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>0</sortorder>
+                    <sortorder>1</sortorder>
                     <drawtype>0</drawtype>
                     <color>DD0000</color>
                     <yaxisside>0</yaxisside>
@@ -4616,7 +5298,7 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>1</sortorder>
+                    <sortorder>2</sortorder>
                     <drawtype>1</drawtype>
                     <color>6666FF</color>
                     <yaxisside>0</yaxisside>
@@ -4625,6 +5307,18 @@
                     <item>
                         <host>wildfly-JVM-monitor</host>
                         <key>jvm.slave100.OU</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>770000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.slave100.OGCMX</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4648,7 +5342,7 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>1</sortorder>
+                    <sortorder>2</sortorder>
                     <drawtype>1</drawtype>
                     <color>6666FF</color>
                     <yaxisside>0</yaxisside>
@@ -4661,6 +5355,18 @@
                 </graph_item>
                 <graph_item>
                     <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>770000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.slave100.PGCMX</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
                     <drawtype>0</drawtype>
                     <color>DD0000</color>
                     <yaxisside>0</yaxisside>
@@ -4756,7 +5462,7 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>0</sortorder>
+                    <sortorder>1</sortorder>
                     <drawtype>0</drawtype>
                     <color>DD0000</color>
                     <yaxisside>0</yaxisside>
@@ -4768,7 +5474,7 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>1</sortorder>
+                    <sortorder>2</sortorder>
                     <drawtype>1</drawtype>
                     <color>6666FF</color>
                     <yaxisside>0</yaxisside>
@@ -4777,6 +5483,18 @@
                     <item>
                         <host>wildfly-JVM-monitor</host>
                         <key>jvm.slave200.EU</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>770000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.slave200.NGCMX</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4832,27 +5550,15 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>4</sortorder>
+                    <sortorder>2</sortorder>
                     <drawtype>0</drawtype>
-                    <color>DD0000</color>
+                    <color>EEEE00</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
                         <host>wildfly-JVM-monitor</host>
-                        <key>jvm.slave200.PU</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>3</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>FFCCCC</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>wildfly-JVM-monitor</host>
-                        <key>jvm.slave200.OU</key>
+                        <key>jvm.slave200.EU</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -4880,15 +5586,27 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>2</sortorder>
+                    <sortorder>4</sortorder>
                     <drawtype>0</drawtype>
-                    <color>EEEE00</color>
+                    <color>DD0000</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
                         <host>wildfly-JVM-monitor</host>
-                        <key>jvm.slave200.EU</key>
+                        <key>jvm.slave200.PU</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>3</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>FFCCCC</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.slave200.OU</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4914,17 +5632,17 @@
                 <graph_item>
                     <sortorder>0</sortorder>
                     <drawtype>0</drawtype>
-                    <color>DD0000</color>
+                    <color>770000</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
                         <host>wildfly-JVM-monitor</host>
-                        <key>jvm.slave200.OC</key>
+                        <key>jvm.slave200.OGCMX</key>
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>1</sortorder>
+                    <sortorder>2</sortorder>
                     <drawtype>1</drawtype>
                     <color>6666FF</color>
                     <yaxisside>0</yaxisside>
@@ -4933,6 +5651,18 @@
                     <item>
                         <host>wildfly-JVM-monitor</host>
                         <key>jvm.slave200.OU</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>DD0000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.slave200.OC</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4956,19 +5686,19 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>1</sortorder>
-                    <drawtype>1</drawtype>
-                    <color>6666FF</color>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>770000</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
                         <host>wildfly-JVM-monitor</host>
-                        <key>jvm.slave200.PU</key>
+                        <key>jvm.slave200.PGCMX</key>
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>0</sortorder>
+                    <sortorder>1</sortorder>
                     <drawtype>0</drawtype>
                     <color>DD0000</color>
                     <yaxisside>0</yaxisside>
@@ -4977,6 +5707,18 @@
                     <item>
                         <host>wildfly-JVM-monitor</host>
                         <key>jvm.slave200.PC</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
+                    <drawtype>1</drawtype>
+                    <color>6666FF</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.slave200.PU</key>
                     </item>
                 </graph_item>
             </graph_items>
