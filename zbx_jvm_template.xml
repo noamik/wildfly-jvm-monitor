@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-07-01T16:04:15Z</date>
+    <date>2015-07-01T16:08:16Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -1698,7 +1698,7 @@
                     <multiplier>0</multiplier>
                     <snmp_oid/>
                     <key>jvm.processcontroller.limittrapstarter[{$ZABBIX_AGENTD_CONF}]</key>
-                    <delay>60</delay>
+                    <delay>3600</delay>
                     <history>90</history>
                     <trends>365</trends>
                     <status>0</status>
