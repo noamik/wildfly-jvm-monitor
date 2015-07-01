@@ -18,6 +18,7 @@ JHRUN=1
 JPRUN=1
 JS1RUN=1
 JS2RUN=1
+LOG="/tmp/jvm-monitor.log"
 ZABBIX_AGENTD_CONF="/etc/zabbix/zabbix_agentd.conf"
 if [[ -n "$1" ]] ; then
   ZABBIX_AGENTD_CONF=$1
@@ -53,6 +54,7 @@ function checkStats {
 }
 
 function getHostData {
+  TIMESTAMP=$(date +%s)
   SENDING_DATA="\"$HOST\" jvm.hostcontroller.S0C $TIMESTAMP ${JHSTAT[1]}
 \"$HOST\" jvm.hostcontroller.S1C $TIMESTAMP ${JHSTAT[2]}
 \"$HOST\" jvm.hostcontroller.S0U $TIMESTAMP ${JHSTAT[3]}
@@ -72,6 +74,7 @@ function getHostData {
 }
 
 function getProcessData {
+  TIMESTAMP=$(date +%s)
   SENDING_DATA="\"$HOST\" jvm.processcontroller.S0C $TIMESTAMP ${JPSTAT[1]}
 \"$HOST\" jvm.processcontroller.S1C $TIMESTAMP ${JPSTAT[2]}
 \"$HOST\" jvm.processcontroller.S0U $TIMESTAMP ${JPSTAT[3]}
@@ -90,6 +93,7 @@ function getProcessData {
 }
 
 function getSlave100Data {
+  TIMESTAMP=$(date +%s)
   SENDING_DATA="\"$HOST\" jvm.slave100.S0C $TIMESTAMP ${JSTAT1[1]}
 \"$HOST\" jvm.slave100.S1C $TIMESTAMP ${JSTAT1[2]}
 \"$HOST\" jvm.slave100.S0U $TIMESTAMP ${JSTAT1[3]}
@@ -109,6 +113,7 @@ function getSlave100Data {
 }
 
 function getSlave200Data {
+  TIMESTAMP=$(date +%s)
   SENDING_DATA="\"$HOST\" jvm.slave200.S0C $TIMESTAMP ${JSTAT2[1]}
 \"$HOST\" jvm.slave200.S1C $TIMESTAMP ${JSTAT2[2]}
 \"$HOST\" jvm.slave200.S0U $TIMESTAMP ${JSTAT2[3]}
@@ -132,6 +137,8 @@ function sendStats {
   getProcessData
 #  echo "$SENDING_DATA"
   result=$(echo "$SENDING_DATA" | zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
+#  echo "$SENDING_DATA" >> $LOG
+#  echo "Result: $result" >> $LOG
   getHostData
 #  echo "$SENDING_DATA"
   result=$(echo "$SENDING_DATA" | zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
