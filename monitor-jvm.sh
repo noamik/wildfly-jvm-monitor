@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FPID="pids"
+FPID="/opt/jvm-monitor/pids"
 HOST=$(hostname)
 TIMESTAMP=0
 
@@ -14,6 +14,14 @@ JPSTAT=()
 JSTAT1=()
 JSTAT2=()
 SENDING_DATA=""
+JHRUN=1
+JPRUN=1
+JS1RUN=1
+JS2RUN=1
+ZABBIX_AGENTD_CONF="/etc/zabbix/zabbix_agentd.conf"
+if [[ -n "$1" ]] ; then
+  ZABBIX_AGENTD_CONF=$1
+fi
 
 function getPids {
   JPPID=$(<$FPID/process-controller.pid)
@@ -38,10 +46,10 @@ function emptyJstatArray {
 }
 
 function checkStats {
-  if [[ ${#JHSTAT[@]} < '16' ]] ; then JHSTAT=($(emptyJstatArray)) ; fi
-  if [[ ${#JPSTAT[@]} < '16' ]] ; then JPSTAT=($(emptyJstatArray)) ; fi
-  if [[ ${#JSTAT1[@]} < '16' ]] ; then JSTAT1=($(emptyJstatArray)) ; fi
-  if [[ ${#JSTAT2[@]} < '16' ]] ; then JSTAT2=($(emptyJstatArray)) ; fi
+  if [[ ${#JHSTAT[@]} < '16' ]] ; then JHSTAT=($(emptyJstatArray)); JHRUN=0 ; fi
+  if [[ ${#JPSTAT[@]} < '16' ]] ; then JPSTAT=($(emptyJstatArray)); JPRUN=0 ; fi
+  if [[ ${#JSTAT1[@]} < '16' ]] ; then JSTAT1=($(emptyJstatArray)); JS1RUN=0 ; fi
+  if [[ ${#JSTAT2[@]} < '16' ]] ; then JSTAT2=($(emptyJstatArray)); JS2RUN=0 ; fi
 }
 
 function getHostData {
@@ -59,7 +67,8 @@ function getHostData {
 \"$HOST\" jvm.hostcontroller.YGCT $TIMESTAMP ${JHSTAT[12]}
 \"$HOST\" jvm.hostcontroller.FGC $TIMESTAMP ${JHSTAT[13]}
 \"$HOST\" jvm.hostcontroller.FGCT $TIMESTAMP ${JHSTAT[14]}
-\"$HOST\" jvm.hostcontroller.GCT $TIMESTAMP ${JHSTAT[15]}"
+\"$HOST\" jvm.hostcontroller.GCT $TIMESTAMP ${JHSTAT[15]}
+\"$HOST\" jvm.hostcontroller.running $TIMESTAMP $JHRUN"
 }
 
 function getProcessData {
@@ -95,7 +104,8 @@ function getSlave100Data {
 \"$HOST\" jvm.slave100.YGCT $TIMESTAMP ${JSTAT1[12]}
 \"$HOST\" jvm.slave100.FGC $TIMESTAMP ${JSTAT1[13]}
 \"$HOST\" jvm.slave100.FGCT $TIMESTAMP ${JSTAT1[14]}
-\"$HOST\" jvm.slave100.GCT $TIMESTAMP ${JSTAT1[15]}"
+\"$HOST\" jvm.slave100.GCT $TIMESTAMP ${JSTAT1[15]}
+\"$HOST\" jvm.slave100.running $TIMESTAMP $JS1RUN"
 }
 
 function getSlave200Data {
@@ -113,23 +123,24 @@ function getSlave200Data {
 \"$HOST\" jvm.slave200.YGCT $TIMESTAMP ${JSTAT2[12]}
 \"$HOST\" jvm.slave200.FGC $TIMESTAMP ${JSTAT2[13]}
 \"$HOST\" jvm.slave200.FGCT $TIMESTAMP ${JSTAT2[14]}
-\"$HOST\" jvm.slave200.GCT $TIMESTAMP ${JSTAT2[15]}"
+\"$HOST\" jvm.slave200.GCT $TIMESTAMP ${JSTAT2[15]}
+\"$HOST\" jvm.slave200.running $TIMESTAMP $JS2RUN"
 }
 
 function sendStats {
   # zabbix_sender $ZS_PARAM -z service.theluckycatcasino.com -s "$(hostname)" -k "cluster.status" -o "$CLUSTER_STATUS" >> $TEMP_LOG_FILE
   getProcessData
-  echo "$SENDING_DATA"
-#  result=$(echo "$SENDING_DATA" | zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
+#  echo "$SENDING_DATA"
+  result=$(echo "$SENDING_DATA" | zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
   getHostData
-  echo "$SENDING_DATA"
-#  result=$(echo "$SENDING_DATA" | zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
+#  echo "$SENDING_DATA"
+  result=$(echo "$SENDING_DATA" | zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
   getSlave100Data
-  echo "$SENDING_DATA"
-#  result=$(echo "$SENDING_DATA" | zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
+#  echo "$SENDING_DATA"
+  result=$(echo "$SENDING_DATA" | zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
   getSlave200Data
-  echo "$SENDING_DATA"
-#  result=$(echo "$SENDING_DATA" | zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
+#  echo "$SENDING_DATA"
+  result=$(echo "$SENDING_DATA" | zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
 }
 
 
@@ -148,23 +159,25 @@ function getStats {
 }
 
 function checkRunning {
-if [[ -n "$JHPID" ]] ; then
-  if ps -p $JHPID  > /dev/null 2>&1
-  then 
-    getStats
-  else
-   if [ "$FIRST" = true ]
-   then
-      FIRST=false
-      ./create-pid-files.sh
-      getPids
-      checkRunning
+  if [[ -n "$JHPID" ]] ; then
+    if ps -p $JHPID  > /dev/null 2>&1
+    then 
+      getStats
     else
-      exit 1
+     if [ "$FIRST" = true ]
+     then
+        FIRST=false
+        /opt/jvm-monitor/./create-pid-files.sh
+        getPids
+        checkRunning
+      else
+        exit 1
+      fi
     fi
   fi
-fi
 }
-. ./get-platform.sh
+
+. /opt/jvm-monitor/./get-platform.sh
 getPids
 checkRunning
+echo $JPRUN

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-07-01T11:58:30Z</date>
+    <date>2015-07-01T13:52:01Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -1007,7 +1007,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>jvm.processcontroller.running</key>
+                    <key>jvm.processcontroller.running[{$ZABBIX_AGENTD_CONF}]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2981,7 +2981,12 @@
                 </item>
             </items>
             <discovery_rules/>
-            <macros/>
+            <macros>
+                <macro>
+                    <macro>{$ZABBIX_AGENTD_CONF}</macro>
+                    <value>/opt/local/etc/zabbix_agentd.conf</value>
+                </macro>
+            </macros>
             <templates/>
             <screens>
                 <screen>
@@ -3181,7 +3186,7 @@
                             <dynamic>0</dynamic>
                             <sort_triggers>0</sort_triggers>
                             <resource>
-                                <key>jvm.processcontroller.running</key>
+                                <key>jvm.processcontroller.running[{$ZABBIX_AGENTD_CONF}]</key>
                                 <host>wildfly-JVM-monitor</host>
                             </resource>
                             <max_columns>3</max_columns>
@@ -3210,7 +3215,7 @@
                             <dynamic>0</dynamic>
                             <sort_triggers>0</sort_triggers>
                             <resource>
-                                <key>jvm.processcontroller.running</key>
+                                <key>jvm.processcontroller.running[{$ZABBIX_AGENTD_CONF}]</key>
                                 <host>wildfly-JVM-monitor</host>
                             </resource>
                             <max_columns>3</max_columns>
@@ -3386,7 +3391,7 @@
                             <dynamic>0</dynamic>
                             <sort_triggers>0</sort_triggers>
                             <resource>
-                                <key>jvm.processcontroller.running</key>
+                                <key>jvm.processcontroller.running[{$ZABBIX_AGENTD_CONF}]</key>
                                 <host>wildfly-JVM-monitor</host>
                             </resource>
                             <max_columns>3</max_columns>
@@ -3591,7 +3596,7 @@
                             <dynamic>0</dynamic>
                             <sort_triggers>0</sort_triggers>
                             <resource>
-                                <key>jvm.processcontroller.running</key>
+                                <key>jvm.processcontroller.running[{$ZABBIX_AGENTD_CONF}]</key>
                                 <host>wildfly-JVM-monitor</host>
                             </resource>
                             <max_columns>3</max_columns>
@@ -3796,7 +3801,7 @@
                             <dynamic>0</dynamic>
                             <sort_triggers>0</sort_triggers>
                             <resource>
-                                <key>jvm.processcontroller.running</key>
+                                <key>jvm.processcontroller.running[{$ZABBIX_AGENTD_CONF}]</key>
                                 <host>wildfly-JVM-monitor</host>
                             </resource>
                             <max_columns>3</max_columns>
@@ -3827,18 +3832,6 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>0</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>DD0000</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>wildfly-JVM-monitor</host>
-                        <key>jvm.hostcontroller.EC</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>1</sortorder>
                     <drawtype>1</drawtype>
                     <color>6666FF</color>
@@ -3848,6 +3841,18 @@
                     <item>
                         <host>wildfly-JVM-monitor</host>
                         <key>jvm.hostcontroller.EU</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>DD0000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.hostcontroller.EC</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -3903,18 +3908,6 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>4</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>DD0000</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>wildfly-JVM-monitor</host>
-                        <key>jvm.hostcontroller.PU</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>2</sortorder>
                     <drawtype>0</drawtype>
                     <color>EEEE00</color>
@@ -3927,15 +3920,27 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>3</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>FFCCCC</color>
+                    <sortorder>1</sortorder>
+                    <drawtype>1</drawtype>
+                    <color>00EE00</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
                         <host>wildfly-JVM-monitor</host>
-                        <key>jvm.hostcontroller.OU</key>
+                        <key>jvm.hostcontroller.S1U</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>4</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>DD0000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.hostcontroller.PU</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3951,15 +3956,15 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>1</sortorder>
-                    <drawtype>1</drawtype>
-                    <color>00EE00</color>
+                    <sortorder>3</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>FFCCCC</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
                         <host>wildfly-JVM-monitor</host>
-                        <key>jvm.hostcontroller.S1U</key>
+                        <key>jvm.hostcontroller.OU</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4027,18 +4032,6 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>0</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>DD0000</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>wildfly-JVM-monitor</host>
-                        <key>jvm.hostcontroller.PC</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>1</sortorder>
                     <drawtype>1</drawtype>
                     <color>6666FF</color>
@@ -4048,6 +4041,18 @@
                     <item>
                         <host>wildfly-JVM-monitor</host>
                         <key>jvm.hostcontroller.PU</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>DD0000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.hostcontroller.PC</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4211,27 +4216,15 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>3</sortorder>
+                    <sortorder>4</sortorder>
                     <drawtype>0</drawtype>
-                    <color>FFCCCC</color>
+                    <color>DD0000</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
                         <host>wildfly-JVM-monitor</host>
-                        <key>jvm.processcontroller.OU</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>0</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>33FFFF</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>wildfly-JVM-monitor</host>
-                        <key>jvm.processcontroller.S0U</key>
+                        <key>jvm.processcontroller.PU</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -4247,18 +4240,6 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>4</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>DD0000</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>wildfly-JVM-monitor</host>
-                        <key>jvm.processcontroller.PU</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>2</sortorder>
                     <drawtype>0</drawtype>
                     <color>EEEE00</color>
@@ -4268,6 +4249,30 @@
                     <item>
                         <host>wildfly-JVM-monitor</host>
                         <key>jvm.processcontroller.EU</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>33FFFF</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.processcontroller.S0U</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>3</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>FFCCCC</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.processcontroller.OU</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4291,18 +4296,6 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>1</sortorder>
-                    <drawtype>1</drawtype>
-                    <color>6666FF</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>wildfly-JVM-monitor</host>
-                        <key>jvm.processcontroller.OU</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>0</sortorder>
                     <drawtype>0</drawtype>
                     <color>DD0000</color>
@@ -4312,6 +4305,18 @@
                     <item>
                         <host>wildfly-JVM-monitor</host>
                         <key>jvm.processcontroller.OC</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <drawtype>1</drawtype>
+                    <color>6666FF</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.processcontroller.OU</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4443,18 +4448,6 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>0</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>DD0000</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>wildfly-JVM-monitor</host>
-                        <key>jvm.slave100.EC</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>1</sortorder>
                     <drawtype>1</drawtype>
                     <color>6666FF</color>
@@ -4464,6 +4457,18 @@
                     <item>
                         <host>wildfly-JVM-monitor</host>
                         <key>jvm.slave100.EU</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>DD0000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.slave100.EC</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4519,39 +4524,15 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>2</sortorder>
+                    <sortorder>0</sortorder>
                     <drawtype>0</drawtype>
-                    <color>EEEE00</color>
+                    <color>33FFFF</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
                         <host>wildfly-JVM-monitor</host>
-                        <key>jvm.slave100.EU</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>4</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>DD0000</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>wildfly-JVM-monitor</host>
-                        <key>jvm.slave100.PU</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>1</sortorder>
-                    <drawtype>1</drawtype>
-                    <color>00EE00</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>wildfly-JVM-monitor</host>
-                        <key>jvm.slave100.S1U</key>
+                        <key>jvm.slave100.S0U</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -4567,15 +4548,39 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>0</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>33FFFF</color>
+                    <sortorder>1</sortorder>
+                    <drawtype>1</drawtype>
+                    <color>00EE00</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
                         <host>wildfly-JVM-monitor</host>
-                        <key>jvm.slave100.S0U</key>
+                        <key>jvm.slave100.S1U</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>4</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>DD0000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.slave100.PU</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>EEEE00</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.slave100.EU</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4643,18 +4648,6 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>0</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>DD0000</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>wildfly-JVM-monitor</host>
-                        <key>jvm.slave100.PC</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>1</sortorder>
                     <drawtype>1</drawtype>
                     <color>6666FF</color>
@@ -4664,6 +4657,18 @@
                     <item>
                         <host>wildfly-JVM-monitor</host>
                         <key>jvm.slave100.PU</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>DD0000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.slave100.PC</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4751,18 +4756,6 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>1</sortorder>
-                    <drawtype>1</drawtype>
-                    <color>6666FF</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>wildfly-JVM-monitor</host>
-                        <key>jvm.slave200.EU</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>0</sortorder>
                     <drawtype>0</drawtype>
                     <color>DD0000</color>
@@ -4772,6 +4765,18 @@
                     <item>
                         <host>wildfly-JVM-monitor</host>
                         <key>jvm.slave200.EC</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <drawtype>1</drawtype>
+                    <color>6666FF</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.slave200.EU</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4827,18 +4832,6 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>2</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>EEEE00</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>wildfly-JVM-monitor</host>
-                        <key>jvm.slave200.EU</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>4</sortorder>
                     <drawtype>0</drawtype>
                     <color>DD0000</color>
@@ -4851,15 +4844,15 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>0</sortorder>
+                    <sortorder>3</sortorder>
                     <drawtype>0</drawtype>
-                    <color>33FFFF</color>
+                    <color>FFCCCC</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
                         <host>wildfly-JVM-monitor</host>
-                        <key>jvm.slave200.S0U</key>
+                        <key>jvm.slave200.OU</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -4875,15 +4868,27 @@
                     </item>
                 </graph_item>
                 <graph_item>
-                    <sortorder>3</sortorder>
+                    <sortorder>0</sortorder>
                     <drawtype>0</drawtype>
-                    <color>FFCCCC</color>
+                    <color>33FFFF</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
                         <host>wildfly-JVM-monitor</host>
-                        <key>jvm.slave200.OU</key>
+                        <key>jvm.slave200.S0U</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>EEEE00</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.slave200.EU</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4951,18 +4956,6 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>0</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>DD0000</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>wildfly-JVM-monitor</host>
-                        <key>jvm.slave200.PC</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>1</sortorder>
                     <drawtype>1</drawtype>
                     <color>6666FF</color>
@@ -4972,6 +4965,18 @@
                     <item>
                         <host>wildfly-JVM-monitor</host>
                         <key>jvm.slave200.PU</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>DD0000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>wildfly-JVM-monitor</host>
+                        <key>jvm.slave200.PC</key>
                     </item>
                 </graph_item>
             </graph_items>

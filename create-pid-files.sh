@@ -2,18 +2,19 @@
 
 # Configurables
 TEMP="/tmp"
-PIDF="pids"
+PIDF="/opt/jvm-monitor/pids"
 
 # Non-Configurables
 TEMP_OUT=$TMP/test-jps-output.txt
 
 # Querying plattform
-. ./get-platform.sh
+. /opt/jvm-monitor/./get-platform.sh
 
 # Getting running jvms
 if [[ $platform == 'sunos' ]]; then
   /opt/local/java/openjdk7/bin/jps -v > $TEMP_OUT
 else
+  echo "sudo -H -u wildfly bash -c \"/usr/local/bin/jps -v\" > $TEMP_OUT"
   sudo -H -u wildfly bash -c "/usr/local/bin/jps -v" > $TEMP_OUT
 fi
 
