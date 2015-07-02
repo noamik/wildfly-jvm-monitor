@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configurables
-TEMP="/tmp"
+TMP="/tmp"
 PIDF="/opt/jvm-monitor/pids"
 
 # Non-Configurables
