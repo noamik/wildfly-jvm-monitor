@@ -133,21 +133,26 @@ function getSlave200Data {
 }
 
 function sendStats {
+  if [[ $platform == 'sunos' ]] ; then
+    PREFIX='/opt/local/bin/'
+  else
+    PREFIX=""
+  fi
   # zabbix_sender $ZS_PARAM -z service.theluckycatcasino.com -s "$(hostname)" -k "cluster.status" -o "$CLUSTER_STATUS" >> $TEMP_LOG_FILE
   getProcessData
 #  echo "$SENDING_DATA"
-  result=$(echo "$SENDING_DATA" | zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
+  result=$(echo "$SENDING_DATA" | $PREFIXzabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
 #  echo "$SENDING_DATA" >> $LOG
 #  echo "Result: $result" >> $LOG
   getHostData
 #  echo "$SENDING_DATA"
-  result=$(echo "$SENDING_DATA" | zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
+  result=$(echo "$SENDING_DATA" | $PREFIXzabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
   getSlave100Data
 #  echo "$SENDING_DATA"
-  result=$(echo "$SENDING_DATA" | zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
+  result=$(echo "$SENDING_DATA" | $PREFIXzabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
   getSlave200Data
 #  echo "$SENDING_DATA"
-  result=$(echo "$SENDING_DATA" | zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
+  result=$(echo "$SENDING_DATA" | $PREFIXzabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
 }
 
 
