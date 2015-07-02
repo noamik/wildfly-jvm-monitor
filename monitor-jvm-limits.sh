@@ -35,7 +35,7 @@ function getJstat {
   if [ -n "$1" ]; then
     TIMESTAMP=$(date +%s)
     if [[ $platform == 'sunos' ]]; then
-      /opt/local/java/openjdk7/bin/jstat -gc -t $1
+      /opt/local/bin/sudo /opt/local/java/openjdk7/bin/jstat -gc -t $1
     else
       sudo -H -u wildfly bash -c "/usr/local/bin/jstat -gccapacity -t $1"
     fi
