@@ -110,9 +110,9 @@ function getStats {
   #       107737.6 8704.0 8704.0 2751.9  0.0   70208.0  32418.3   174784.0   29565.4   36288.0 36022.9      6    0.186   2      0.222    0.408
   JHSTAT=($(getJstat $JHPID | grep -v "Timestamp"))
   JPSTAT=($(getJstat $JPPID | grep -v "Timestamp"))
-  if [[ -n "JSPID1" ]] ; then
-    JSSTAT1=($(getJstat $JSPID1 | grep -v "Timestamp"))
-    JSSTAT2=($(getJstat $JSPID2 | grep -v "Timestamp"))
+  if [[ -n "$JSPID1" ]] ; then
+    JSTAT1=($(getJstat $JSPID1 | grep -v "Timestamp"))
+    JSTAT2=($(getJstat $JSPID2 | grep -v "Timestamp"))
   fi
   checkStats
   sendStats
