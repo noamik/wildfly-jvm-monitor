@@ -32,7 +32,7 @@ function getJstat {
   if [ -n "$1" ]; then
     TIMESTAMP=$(date +%s)
     if [[ $platform == 'sunos' ]]; then
-      /opt/local/bin/sudo /opt/local/java/openjdk7/bin/jstat -gc -t $1
+      /opt/local/bin/sudo /opt/local/java/openjdk7/bin/jstat -gccapacity -t $1
     else
       sudo -H -u wildfly bash -c "/usr/local/bin/jstat -gccapacity -t $1"
     fi
@@ -52,32 +52,32 @@ function checkStats {
 
 function getHostData {
   TIMESTAMP=$(date +%s)
-  SENDING_DATA="\"$HOST\" jvm.hostcontroller.NGCMX $TIMESTAMP ${JHSTAT[3]}
-\"$HOST\" jvm.hostcontroller.OGCMX $TIMESTAMP ${JHSTAT[9]}
-\"$HOST\" jvm.hostcontroller.PGCMX $TIMESTAMP ${JHSTAT[13]}
+  SENDING_DATA="\"$HOST\" jvm.hostcontroller.NGCMX $TIMESTAMP ${JHSTAT[2]}
+\"$HOST\" jvm.hostcontroller.OGCMX $TIMESTAMP ${JHSTAT[8]}
+\"$HOST\" jvm.hostcontroller.PGCMX $TIMESTAMP ${JHSTAT[12]}
 \"$HOST\" jvm.hostcontroller.running $TIMESTAMP $JHRUN"
 }
 
 function getProcessData {
   TIMESTAMP=$(date +%s)
-  SENDING_DATA="\"$HOST\" jvm.processcontroller.NGCMX $TIMESTAMP ${JPSTAT[3]}
-\"$HOST\" jvm.processcontroller.OGCMX $TIMESTAMP ${JPSTAT[9]}
-\"$HOST\" jvm.processcontroller.PGCMX $TIMESTAMP ${JPSTAT[13]}"
+  SENDING_DATA="\"$HOST\" jvm.processcontroller.NGCMX $TIMESTAMP ${JPSTAT[2]}
+\"$HOST\" jvm.processcontroller.OGCMX $TIMESTAMP ${JPSTAT[8]}
+\"$HOST\" jvm.processcontroller.PGCMX $TIMESTAMP ${JPSTAT[12]}"
 }
 
 function getSlave100Data {
   TIMESTAMP=$(date +%s)
-  SENDING_DATA="\"$HOST\" jvm.slave100.NGCMX $TIMESTAMP ${JSTAT1[3]}
-\"$HOST\" jvm.slave100.OGCMX $TIMESTAMP ${JSTAT1[9]}
-\"$HOST\" jvm.slave100.PGCMX $TIMESTAMP ${JSTAT1[13]}
+  SENDING_DATA="\"$HOST\" jvm.slave100.NGCMX $TIMESTAMP ${JSTAT1[2]}
+\"$HOST\" jvm.slave100.OGCMX $TIMESTAMP ${JSTAT1[8]}
+\"$HOST\" jvm.slave100.PGCMX $TIMESTAMP ${JSTAT1[12]}
 \"$HOST\" jvm.slave100.running $TIMESTAMP $JS1RUN"
 }
 
 function getSlave200Data {
   TIMESTAMP=$(date +%s)
-  SENDING_DATA="\"$HOST\" jvm.slave200.NGCMX $TIMESTAMP ${JSTAT2[3]}
-\"$HOST\" jvm.slave200.OGCMX $TIMESTAMP ${JSTAT2[9]}
-\"$HOST\" jvm.slave200.PGCMX $TIMESTAMP ${JSTAT2[13]}
+  SENDING_DATA="\"$HOST\" jvm.slave200.NGCMX $TIMESTAMP ${JSTAT2[2]}
+\"$HOST\" jvm.slave200.OGCMX $TIMESTAMP ${JSTAT2[8]}
+\"$HOST\" jvm.slave200.PGCMX $TIMESTAMP ${JSTAT2[12]}
 \"$HOST\" jvm.slave200.running $TIMESTAMP $JS2RUN"
 }
 
