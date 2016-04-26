@@ -17,6 +17,10 @@ In order to work this collection of scripts require the use of a zabbix_agent.d 
     UserParameter=jvm.processcontroller.running[*],/opt/jvm-monitor/monitor-jvm.sh "$1"
     UserParameter=jvm.processcontroller.limittrapstarter[*],/opt/jvm-monitor/monitor-jvm-limits.sh "$1"
 
+# Requirements
+
+The script collection has been tested on CentOS 6, 7 and SmartOS using an Oracle 1.7 jdk. Some script pathes are hardcoded due to timeconstraints which implies that the scripts in their current state have to be located in the folder `/opt/jvm-monitor`.
+
 # Disclaimer
 
 These scripts are provided as is and come with no warranty and no further documentation. They can't be deployed and run out-of-the-box. You will need to be familiar with wildfly, bash and zabbix to make use of it. They weren't intended for public release when written. I've published them upon request by: https://issues.jboss.org/browse/WFCORE-974#
