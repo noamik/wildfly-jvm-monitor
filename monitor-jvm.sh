@@ -9,6 +9,7 @@ JHPID=""
 JSPID1=""
 JSPID2=""
 FIRST=true
+DEBUG=false
 JHSTAT=()
 JPSTAT=()
 JSTAT1=()
@@ -139,17 +140,35 @@ function sendStats {
   getProcessData
 #  echo "$SENDING_DATA"
   result=$(echo "$SENDING_DATA" | ${PREFIX}zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
-#  echo "$SENDING_DATA" >> $LOG
-#  echo "Result: $result" >> $LOG
+  if [ "$DEBUG" = true ]
+  then
+    echo "$SENDING_DATA" >> $LOG
+    echo "Result: $result" >> $LOG
+  fi
   getHostData
 #  echo "$SENDING_DATA"
   result=$(echo "$SENDING_DATA" | ${PREFIX}zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
+  if [ "$DEBUG" = true ]
+  then
+    echo "$SENDING_DATA" >> $LOG
+    echo "Result: $result" >> $LOG
+  fi
   getSlave100Data
 #  echo "$SENDING_DATA"
   result=$(echo "$SENDING_DATA" | ${PREFIX}zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
+  if [ "$DEBUG" = true ]
+  then
+    echo "$SENDING_DATA" >> $LOG
+    echo "Result: $result" >> $LOG
+  fi
   getSlave200Data
 #  echo "$SENDING_DATA"
   result=$(echo "$SENDING_DATA" | ${PREFIX}zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
+  if [ "$DEBUG" = true ]
+  then
+    echo "$SENDING_DATA" >> $LOG
+    echo "Result: $result" >> $LOG
+  fi
 }
 
 
@@ -182,6 +201,16 @@ function checkRunning {
       else
         exit 1
       fi
+    fi
+  else
+    if [ "$FIRST" = true ]
+    then
+      FIRST=false
+      /opt/jvm-monitor/./create-pid-files.sh
+      getPids
+      checkRunning
+    else
+      exit 1
     fi
   fi
 }
