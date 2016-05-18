@@ -1,6 +1,7 @@
 #!/bin/bash
 
 FPID="/opt/jvm-monitor/pids"
+DEBUG=false
 HOST=$(hostname)
 TIMESTAMP=0
 
@@ -108,6 +109,22 @@ function sendStats {
   result=$(echo "$SENDING_DATA" | ${PREFIX}zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
 }
 
+function echoStats {
+  if [[ $platform == 'sunos' ]] ; then
+    PREFIX='/opt/local/bin/'
+  else
+    PREFIX=""
+  fi
+  getProcessData
+  echo "$SENDING_DATA"
+  getHostData
+  echo "$SENDING_DATA"
+  getSlave100Data
+  echo "$SENDING_DATA"
+  getSlave200Data
+  echo "$SENDING_DATA"
+}
+
 function getStats {
   #sudo -H -u wildfly bash -c '/usr/local/bin/jstat -gc -t 20674' && sudo -H -u wildfly bash -c '/usr/local/bin/jstat -gcutil -t 20674' && sudo -H -u wildfly bash -c "/usr/local/bin/jmap -heap 20674"
   # Timestamp        S0C    S1C    S0U    S1U      EC       EU        OC         OU       PC     PU    YGC     YGCT    FGC    FGCT     GCT
@@ -120,6 +137,9 @@ function getStats {
   fi
   checkStats
   sendStats
+  if [ "$DEBUG" = true ] ; then
+    echoStats
+  fi
 }
 
 function checkRunning {

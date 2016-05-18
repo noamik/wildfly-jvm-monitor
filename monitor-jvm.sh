@@ -1,6 +1,7 @@
 #!/bin/bash
 
 FPID="/opt/jvm-monitor/pids"
+DEBUG=false
 HOST=$(hostname)
 TIMESTAMP=0
 
@@ -175,6 +176,21 @@ function sendStats {
   fi
 }
 
+function echoStats {
+  if [[ $platform == 'sunos' ]] ; then
+    PREFIX='/opt/local/bin/'
+  else
+    PREFIX=""
+  fi
+  getProcessData
+  echo "$SENDING_DATA"
+  getHostData
+  echo "$SENDING_DATA"
+  getSlave100Data
+  echo "$SENDING_DATA"
+  getSlave200Data
+  echo "$SENDING_DATA"
+}
 
 function getStats {
   #sudo -H -u wildfly bash -c '/usr/local/bin/jstat -gc -t 20674' && sudo -H -u wildfly bash -c '/usr/local/bin/jstat -gcutil -t 20674' && sudo -H -u wildfly bash -c "/usr/local/bin/jmap -heap 20674"
@@ -188,6 +204,9 @@ function getStats {
   fi
   checkStats
   sendStats
+  if [ "$DEBUG" = true ] ; then
+    echoStats
+  fi
 }
 
 function checkRunning {
