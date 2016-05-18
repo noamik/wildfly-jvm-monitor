@@ -24,8 +24,12 @@ ZABBIX_AGENTD_CONF="/etc/zabbix/zabbix_agentd.conf"
 function getPids {
   JPPID=$(<$FPID/process-controller.pid)
   JHPID=$(<$FPID/host-controller.pid)
-  JSPID1=$(<$FPID/slave-100.pid)
-  JSPID2=$(<$FPID/slave-200.pid)
+  if [ -e "$FPID/slave-100.pid" ] ; then
+    JSPID1=$(<$FPID/slave-100.pid)
+  fi
+  if [ -e "$FPID/slave-200.pid" ] ; then
+    JSPID2=$(<$FPID/slave-200.pid)
+  fi
 }
 
 function getJstat {
