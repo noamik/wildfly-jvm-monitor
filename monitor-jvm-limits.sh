@@ -1,9 +1,11 @@
 #!/bin/bash
 
 FPID="/opt/jvm-monitor/pids"
+TESTRUN=false
 DEBUG=false
 HOST=$(hostname)
 TIMESTAMP=0
+JAVA8=true
 
 JPPID=""
 JHPID=""
@@ -48,6 +50,7 @@ function emptyJstatArray {
   echo "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
 }
 
+# This only works as long as we don't use stat item 17 and 18 in Java 8
 function checkStats {
   if [[ ${#JHSTAT[@]} < '16' ]] ; then JHSTAT=($(emptyJstatArray)); JHRUN=0 ; fi
   if [[ ${#JPSTAT[@]} < '16' ]] ; then JPSTAT=($(emptyJstatArray)); JPRUN=0 ; fi
@@ -57,33 +60,60 @@ function checkStats {
 
 function getHostData {
   TIMESTAMP=$(date +%s)
-  SENDING_DATA="\"$HOST\" jvm.hostcontroller.NGCMX $TIMESTAMP ${JHSTAT[2]}
+  if [ "$JAVA8" = true ] ; then
+    SENDING_DATA="\"$HOST\" jvm.hostcontroller.NGCMX $TIMESTAMP ${JHSTAT[2]}
+\"$HOST\" jvm.hostcontroller.OGCMX $TIMESTAMP ${JHSTAT[8]}
+\"$HOST\" jvm.hostcontroller.MCMX $TIMESTAMP ${JHSTAT[12]}
+\"$HOST\" jvm.hostcontroller.running $TIMESTAMP $JHRUN"
+  else
+    SENDING_DATA="\"$HOST\" jvm.hostcontroller.NGCMX $TIMESTAMP ${JHSTAT[2]}
 \"$HOST\" jvm.hostcontroller.OGCMX $TIMESTAMP ${JHSTAT[8]}
 \"$HOST\" jvm.hostcontroller.PGCMX $TIMESTAMP ${JHSTAT[12]}
 \"$HOST\" jvm.hostcontroller.running $TIMESTAMP $JHRUN"
+  fi
 }
 
 function getProcessData {
   TIMESTAMP=$(date +%s)
-  SENDING_DATA="\"$HOST\" jvm.processcontroller.NGCMX $TIMESTAMP ${JPSTAT[2]}
+  if [ "$JAVA8" = true ] ; then
+    SENDING_DATA="\"$HOST\" jvm.processcontroller.NGCMX $TIMESTAMP ${JPSTAT[2]}
+\"$HOST\" jvm.processcontroller.OGCMX $TIMESTAMP ${JPSTAT[8]}
+\"$HOST\" jvm.processcontroller.MCMX $TIMESTAMP ${JPSTAT[12]}"
+  else
+    SENDING_DATA="\"$HOST\" jvm.processcontroller.NGCMX $TIMESTAMP ${JPSTAT[2]}
 \"$HOST\" jvm.processcontroller.OGCMX $TIMESTAMP ${JPSTAT[8]}
 \"$HOST\" jvm.processcontroller.PGCMX $TIMESTAMP ${JPSTAT[12]}"
+  fi
 }
 
 function getSlave100Data {
   TIMESTAMP=$(date +%s)
-  SENDING_DATA="\"$HOST\" jvm.slave100.NGCMX $TIMESTAMP ${JSTAT1[2]}
+  if [ "$JAVA8" = true ] ; then
+    SENDING_DATA="\"$HOST\" jvm.slave100.NGCMX $TIMESTAMP ${JSTAT1[2]}
+\"$HOST\" jvm.slave100.OGCMX $TIMESTAMP ${JSTAT1[8]}
+\"$HOST\" jvm.slave100.MCMX $TIMESTAMP ${JSTAT1[12]}
+\"$HOST\" jvm.slave100.running $TIMESTAMP $JS1RUN"
+  else
+    SENDING_DATA="\"$HOST\" jvm.slave100.NGCMX $TIMESTAMP ${JSTAT1[2]}
 \"$HOST\" jvm.slave100.OGCMX $TIMESTAMP ${JSTAT1[8]}
 \"$HOST\" jvm.slave100.PGCMX $TIMESTAMP ${JSTAT1[12]}
 \"$HOST\" jvm.slave100.running $TIMESTAMP $JS1RUN"
+  fi
 }
 
 function getSlave200Data {
   TIMESTAMP=$(date +%s)
-  SENDING_DATA="\"$HOST\" jvm.slave200.NGCMX $TIMESTAMP ${JSTAT2[2]}
+  if [ "$JAVA8" = true ] ; then
+    SENDING_DATA="\"$HOST\" jvm.slave200.NGCMX $TIMESTAMP ${JSTAT2[2]}
+\"$HOST\" jvm.slave200.OGCMX $TIMESTAMP ${JSTAT2[8]}
+\"$HOST\" jvm.slave200.MCMX $TIMESTAMP ${JSTAT2[12]}
+\"$HOST\" jvm.slave200.running $TIMESTAMP $JS2RUN"
+  else
+    SENDING_DATA="\"$HOST\" jvm.slave200.NGCMX $TIMESTAMP ${JSTAT2[2]}
 \"$HOST\" jvm.slave200.OGCMX $TIMESTAMP ${JSTAT2[8]}
 \"$HOST\" jvm.slave200.PGCMX $TIMESTAMP ${JSTAT2[12]}
 \"$HOST\" jvm.slave200.running $TIMESTAMP $JS2RUN"
+  fi
 }
 
 function sendStats {
@@ -94,19 +124,22 @@ function sendStats {
   fi
   # zabbix_sender $ZS_PARAM -z service.theluckycatcasino.com -s "$(hostname)" -k "cluster.status" -o "$CLUSTER_STATUS" >> $TEMP_LOG_FILE
   getProcessData
-#  echo "$SENDING_DATA"
-  result=$(echo "$SENDING_DATA" | ${PREFIX}zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
-#  echo "$SENDING_DATA" >> $LOG
-#  echo "Result: $result" >> $LOG
+  sendData
   getHostData
-#  echo "$SENDING_DATA"
-  result=$(echo "$SENDING_DATA" | ${PREFIX}zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
+  sendData
   getSlave100Data
-#  echo "$SENDING_DATA"
-  result=$(echo "$SENDING_DATA" | ${PREFIX}zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
+  sendData
   getSlave200Data
-#  echo "$SENDING_DATA"
+  sendData
+}
+
+function sendData {
   result=$(echo "$SENDING_DATA" | ${PREFIX}zabbix_sender -c $ZABBIX_AGENTD_CONF -v -T -i - 2>&1)
+  if [ "$DEBUG" = true ]
+  then
+    echo "$SENDING_DATA" >> $LOG
+    echo "Result: $result" >> $LOG
+  fi
 }
 
 function echoStats {
@@ -136,9 +169,10 @@ function getStats {
     JSTAT2=($(getJstat $JSPID2 | grep -v "Timestamp"))
   fi
   checkStats
-  sendStats
-  if [ "$DEBUG" = true ] ; then
+    if [ "$TESTRUN" = true ] ; then
     echoStats
+  else
+    sendStats
   fi
 }
 
