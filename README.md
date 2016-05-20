@@ -27,17 +27,21 @@ Look into the head section of both monitor scripts to find debug options.
 
 # Testing setup
 
-## Running scripts
+## Running scripts manually
+
+The following execution will return the data that would be send to zabbix to the console for review:
 
     ./monitor-jvm.sh /etc/zabbix/zabbix_agentd.conf true
     ./monitor-jvm-limits.sh /etc/zabbix/zabbix_agentd.conf true
 
 ## Running scripts through zabbix
 
-    zabbix_get -s 64.30.129.5 -k jvm.processcontroller.running["/etc/zabbix/zabbix_agentd.conf"]
+The following commands will generate data and send it to the zabbix trapper.
+
+    zabbix_get -s jvm.host.ip -k jvm.processcontroller.running["/etc/zabbix/zabbix_agentd.conf"]
     zabbix_get -s jvm.host.ip -k jvm.processcontroller.limittrapstarter["/etc/zabbix/zabbix_agentd.conf"]
 
-If the later doesn't yield any results despite not generating any error, set "DEBUG=true" in the head section of ´´´monitor-jvm.sh´´´ and monitor ´´´/tmp/jvm-monitor.log´´´
+If the later doesn't yield any results despite not generating any error, set ```DEBUG=true``` in the head section of [monitor-jvm.sh](monitor-jvm.sh) and monitor `/tmp/jvm-monitor.log`.
 
 # Disclaimer
 
