@@ -19,7 +19,25 @@ In order to work this collection of scripts require the use of a zabbix_agent.d 
 
 # Requirements
 
-The script collection has been tested on CentOS 6, 7 and SmartOS using an Oracle 1.7 jdk. Some script pathes are hardcoded due to timeconstraints which implies that the scripts in their current state have to be located in the folder `/opt/jvm-monitor`.
+The script collection has been tested on CentOS 6, 7 and SmartOS using an Oracle 1.7 jdk and Oracle 1.8 jdk. Some script pathes are hardcoded due to timeconstraints which implies that the scripts in their current state have to be located in the folder `/opt/jvm-monitor`.
+
+# Configuration
+
+Look into the head section of both monitor scripts to find debug options.
+
+# Testing setup
+
+## Running scripts
+
+    ./monitor-jvm.sh /etc/zabbix/zabbix_agentd.conf true
+    ./monitor-jvm-limits.sh /etc/zabbix/zabbix_agentd.conf true
+
+## Running scripts through zabbix
+
+    zabbix_get -s 64.30.129.5 -k jvm.processcontroller.running["/etc/zabbix/zabbix_agentd.conf"]
+    zabbix_get -s jvm.host.ip -k jvm.processcontroller.limittrapstarter["/etc/zabbix/zabbix_agentd.conf"]
+
+If the later doesn't yield any results despite not generating any error, set "DEBUG=true" in the head section of ´´´monitor-jvm.sh´´´ and monitor ´´´/tmp/jvm-monitor.log´´´
 
 # Disclaimer
 
